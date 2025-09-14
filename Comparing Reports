@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+ 
+void GetNumAccidents();
+void FindLowest(int, int, int, int);
+int GetNorth(int &);
+int GetSouth(int &);
+int GetEast(int &);
+int GetWest(int &);
+ 
+ 
+int main() {
+    GetNumAccidents(); // Corrected function call
+    return 0;
+}
+ 
+ 
+    int GetNorth(){
+        int Report1;
+    cout<<"How many accidents was reported last year for North:"<<endl;
+    cin>>Report1;
+    while (Report1<0){
+        cout<<"Please,Try again.There cannot be negative numbers.";
+        cin>>Report1;
+    }
+        return Report1;
+    }
+    int GetEast(){
+        int Report2;
+    cout<<"How many accidents was reported last year for East: "<<endl;
+    cin>>Report2;
+while(Report2<0){
+    cout<<"Please try again.There can't be negative numbers."<<endl;
+    cin>>Report2;}
+    return Report2;
+}
+ 
+    int GetSouth(){
+        int Report3;
+        cout<<"How many accidents was reported last year for South: "<<endl;
+    cin>>Report3;
+    while(Report3<0){
+        cout<<"Please try again.There can't be negative numbers."<<endl;
+    cin>>Report3;
+    }
+    return Report3;}
+    int GetWest(){
+        int Report4;
+    cout<<"How many accidents was reported last year for West: "<<endl;
+    cin>>Report4;
+    while(Report4<0){
+        int Report4;
+        cout<<"Please try again.There can't be negative numbers."<<endl;
+    cin>>Report4;
+    }
+    return Report4;}
+    int GetReportFull(int Report1,int Report2,int Report3,int Report4){
+    int ReportTotal;
+    ReportTotal=Report1+Report2+Report3+Report4;
+    cout<<"Total Report is: "<<ReportTotal<<endl;
+        return ReportTotal;
+    }
+    void GetNumAccidents() {
+    int Report1 = GetNorth();
+    int Report2 = GetEast();
+    int Report3 = GetSouth();
+    int Report4 = GetWest();
+    GetReportFull(Report1, Report2, Report3, Report4);
+    FindLowest(Report1, Report2, Report3, Report4);
+}
+    void FindLowest(int Report1,int Report2,int Report3,int Report4){
+        if (Report1<Report2 && Report1<Report3 && Report1<Report4){
+            cout<<"The lowest Region for last year is North with report of "<<Report1<<" Accidents";
+        }
+        else if
+        (Report2<Report1 && Report2<Report3 && Report2<Report4){
+            cout<<"The lowest Region for last year is East with report of "<<Report2<<" Accidents";
+ 
+        }
+        else if
+        (Report3<Report1 && Report3<Report2 && Report3<Report4){
+            cout<<"The lowest Region for last year is South with report of "<<Report3<<" Accidents";
+    }
+    else {
+        cout<<"The lowest Region for last year is West with report of "<<Report4<<" Accidents";
+    }
+    }
+
+/*
+/*
+How many accidents was reported last year for North:
+-5
+Please,Try again.There cannot be negative numbers.0
+Please,Try again.There cannot be negative numbers.15
+How many accidents was reported last year for East: 
+14
+How many accidents was reported last year for South: 
+9
+How many accidents was reported last year for West: 
+8
+Total Report is: 46
+The lowest Region for last year is West with report of 8 Accidents*/
