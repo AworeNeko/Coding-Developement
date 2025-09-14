@@ -1,0 +1,50 @@
+#include<iostream>
+#include<cstring>
+using namespace::std;
+const int Size=80;
+char sentence[Size];
+int i=0;
+float words=1;
+ int j=0;
+     float average;
+     
+void GetSentence();
+int GetNumberWords(char sentence[],float &words);
+float GetAverage(float length,float words);
+
+
+
+int main(){
+    float length;
+   GetSentence();
+   GetNumberWords(sentence, words);
+     length=strlen(sentence);
+     cout<<"The amount of words are:"<<words;
+    cout<<"The amount of letters are: "<<length;
+   GetAverage(length,words);
+   cout<<"The average words are:"<<average;
+   
+    
+    return 0;}
+    
+    
+    void GetSentence(){
+         cout<<"Entre oracion:";
+    cin.getline(sentence,Size);
+    }
+    
+    int GetNumberWords(char sentence[],float &words){
+         while(sentence[j]!='\0'){
+        if(sentence[j]==' '){
+            words+=1;
+
+        }j++;
+    }
+    return words;
+   }
+   
+   
+   float GetAverage(float length,float words){
+         average=length/words;
+    cout<<"The average amount of words are: "<<average;
+    return average;}
