@@ -1,0 +1,43 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(){
+    int Size=20;
+    int n,total;
+    int myarray[Size];
+    float Average;
+int highest;
+cout<<"The numbers you would like to enter:(no more than 20)";
+cin>>n;
+for(int i=0;i<n;i++){
+    cin>>myarray[i];
+}
+cout<<"The numbers you've entered are:"<<endl;
+for(int i=0;i<n;i++){
+    cout<<myarray[i]<<", "<<endl;}
+    
+    total=0;
+    for(int count=0;count<n;count++){
+        total+=myarray[count];
+    }
+   cout<<"The total is:"<<total<<endl;
+   Average=total/n;
+   cout<<"The average numbers: "<<Average<<endl;
+  
+  highest=myarray[0];
+  
+  for(int count=1;count<n;count++){
+      if(myarray[count]>highest){
+      highest=myarray[count];
+  }
+  }
+  cout<<"The highest in the array is: "<<highest;
+  
+   int lowest=myarray[0];
+  
+  for(int count=1;count<n;count++){
+      if(myarray[count]<lowest){
+      lowest=myarray[count];}}
+      cout<<"The Lowest in the array is: "<<lowest;
+
+return 0;}
