@@ -1,0 +1,132 @@
+//Header File
+
+#ifndef TestScore_H
+#define TestScore_H
+
+
+class TestScores {
+    private:
+    int TestScores1;
+    int TestScores2;
+    int TestScores3;
+    
+    
+    public:
+    TestScores();
+    TestScores(int,int,int);
+    ~TestScores();
+    void SetTestScore1(int);
+    void SetTestScore2(int);
+    void SetTestScore3(int);
+    int GetTestScore1();
+    int GetTestScore2();
+    int GetTestScore3();
+    double GetAverage();
+    void Display();
+};
+
+#endif
+
+
+
+
+
+
+
+TestScore.cpp
+
+#include "Testscore.h"
+#include <iostream>
+using namespace::std;
+
+
+TestScores::TestScores(){
+    TestScores1=0;
+    TestScores2=0;
+    TestScores3=0;
+    Display();
+}
+    
+  TestScores::TestScores(int Score1,int Score2,int Score3){
+        SetTestScore1(Score1);
+        SetTestScore2(Score2);
+        SetTestScore3(Score3);
+    }
+   TestScores::~TestScores(){cout<<"Deleting Data...";}
+    
+    
+    void TestScores::SetTestScore1(int Score1){
+        TestScores1=Score1;
+    }
+    void TestScores::SetTestScore2(int Score2){
+        TestScores2=Score2;
+    }
+    
+    void TestScores::SetTestScore3(int Score3){
+        TestScores3=Score3;
+    }
+    int TestScores::GetTestScore1(){
+        return TestScores1;
+    }
+    int TestScores::GetTestScore2(){
+        return TestScores2;
+    }
+    int TestScores::GetTestScore3(){
+        return TestScores3;
+    }
+    double TestScores::GetAverage(){
+        return GetTestScore1()+GetTestScore2()+GetTestScore3()/3;
+    }
+    void TestScores::Display(){
+        cout<<"The First Score is:"<<TestScores1<<endl;
+        cout<<"The Second Score is: "<<TestScores2<<endl;
+        cout<<"The third Score is: "<<TestScores3<<endl;
+        cout<<"The average score is "<<GetAverage()<<endl;
+    }
+Main.cpp
+#include <iostream>
+#include "Testscore.h"
+using namespace::std;
+
+
+
+int main(){
+    int Score1,Score2,Score3;
+    double average;
+    cout<<"Default Constructor:"<<endl;
+    
+    TestScores Test;
+    cout<<"Enter the first Test Score:";
+    cin>>Score1;
+    cout<<"Enter the second Test Score:"<<endl;
+    cin>>Score2;
+    cout<<"Enter the third Test Score:"<<endl;
+    cin>>Score3;
+    Test.SetTestScore1(Score1);
+    Test.SetTestScore2(Score2);
+    Test.SetTestScore3(Score3);
+    Test.Display();
+    
+    
+    
+    
+    
+    return 0;}
+
+
+Results
+Default Constructor:
+The First Score is:0
+The Second Score is: 0
+The third Score is: 0
+The average score is 0
+Enter the first Test Score:34
+Enter the second Test Score:
+43
+Enter the third Test Score:
+52
+The First Score is:34
+The Second Score is: 43
+The third Score is: 52
+The average score is 94
+Deleting Data…
