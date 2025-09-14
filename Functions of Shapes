@@ -1,0 +1,178 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace ::std;
+
+void GetMenu(int &);
+//Circle Formulas
+void CalRect(int &width,int &Length,double &AreaRecta);
+void TriangleCal(double &Base,double &Height,double &AreaTriangle);
+void CalCir(double &Radius,double &AreaCir);
+void GetRadius(double &Radius);
+void CalCirArea(double Radius,double &AreaCir);
+void DisplayCir(double AreaCir);
+//Rectangle Formulas
+void RectWidth(int &width);
+void RectLength(int &Length);
+void AreaRect(int Length,int width,double &AreaRecta);
+void CalRect(int &width,int &Length,double &AreaRecta);
+void DisplayAreRect(double AreaRecta);
+//Triangle Formulas
+ void GetBaseT(double &Base);
+    void GetHeight(double &Height);
+    void CalTriangle(double Base,double Height,double &AreaTriangle);
+    void DisplayTriangle(double AreaTriangle,double Height,double Base);
+
+int choice1;
+
+//Main Function
+int main(){
+    do{
+    int cho;
+   
+ GetMenu(cho);
+ 
+ switch (cho){
+     case 1:
+     cout<<"Formula of Circle"<<endl;
+double Radius,AreaCir;
+       GetRadius(Radius);
+  CalCirArea(Radius,AreaCir);
+    DisplayCir(AreaCir);
+     break;
+     case 2:
+     cout<<"Formula Rectangle"<<endl;
+    int width,Length;
+    double AreaRecta;
+    
+   RectWidth(width);
+    RectLength(Length);
+   AreaRect( Length, width, AreaRecta);
+    DisplayAreRect( AreaRecta);
+     break;
+     case 3:
+     cout<<"Formula Triangle"<<endl;
+     double Base,Height,AreaTriangle;
+     
+     GetBaseT(Base);
+    GetHeight(Height);
+     CalTriangle(Base,Height,AreaTriangle);
+     DisplayTriangle( AreaTriangle,Height, Base);
+     break;
+     case 4:
+     cout<<"Gracias por tu co-operacion.";
+     break;
+     default:
+     cout<<"Try again.";
+     break;
+ }
+    cout<<endl<<"Would you like to repeat the program?(6 to cancel)";
+    cin>>choice1;
+    }while(choice1!=6);  
+    
+    
+    
+    
+return 0;} 
+    
+ //Rectangle Formula   
+    
+
+void RectWidth(int &width){
+    
+    cout<<"What is the rectangle's width:";
+    cin>>width;
+    while(width<0){
+        cout<<"Sorry,can't be negative.Try again.";
+        cin>>width;
+    }
+}
+void RectLength(int &Length){
+
+    cout<<"What is the rectangle's length:";
+    cin>>Length;
+     while(Length<0){
+        cout<<"Sorry,can't be negative.Try again.";
+        cin>>Length;}
+}
+void AreaRect(int Length,int width,double &AreaRecta){
+    AreaRecta=Length * width;}
+    
+    void DisplayAreRect(double AreaRecta){
+cout<<"The Area of the Rectangle is: "<<AreaRecta;    
+}
+
+
+
+
+//Triangle Formula
+
+void GetBaseT(double &Base){
+    cout<<"What is the base of the triangle:";
+    cin>>Base;
+    while(Base<0){
+        cout<<"Base can't be negative.Try again.";
+        cin>>Base;
+    }
+}
+
+void GetHeight(double &Height){
+
+    cout<<"What is the height of the Triangle:";
+    cin>>Height;
+    while(Height<0){
+        cout<<"Sorry,Height can't be negative.Try again";
+        cin>>Height;
+    }
+    
+}
+void CalTriangle(double Base,double Height,double &AreaTriangle){
+    AreaTriangle = Base/2*Height;
+}
+void DisplayTriangle(double AreaTriangle,double Base,double Height){
+    cout<<"The base of the triangle is: "<<Base<<endl;
+    cout<<"The height of the triangle is "<<Height<<endl;
+    cout<<"The area of the triangle is: "<<AreaTriangle<<endl;
+}
+
+
+//Circle Formula
+
+void GetRadius(double &Radius){
+    cout<<"What is the radius of the circle:";
+    cin>>Radius;
+    while(Radius<0){
+        cout<<"Can't be negative.Try again.";
+        cin>>Radius;
+    }
+}
+void CalCirArea(double Radius,double &AreaCir){
+    cout<<"Calculating..."<<endl;
+    double PI = 3.1415;
+    AreaCir = Radius * PI;
+}
+void DisplayCir(double AreaCir){
+    cout<<"The area of the circle is: "<<AreaCir;
+}
+
+
+void CalCir(double &radius,double &AreaCir){
+ void GetRadius(double Radius);
+ void  CalCirArea();
+   void DisplayCir();
+    
+}
+//Menu Formula
+
+
+
+void GetMenu(int &choice){
+
+    cout<<"Welcome Customer."<<endl;
+    cout<<"Menu:"<<endl;
+    cout<<"1.Calculate the area of the Circle"<<endl;
+    cout<<"2.Calculate the area of the Rectangle"<<endl;
+    cout<<"3.Calculate the area of the Triangle"<<endl;
+    cout<<"4.Quit";
+    cin>>choice;
+}
