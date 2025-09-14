@@ -1,0 +1,111 @@
+#include <iostream>
+using namespace::std;
+
+void GetYear(string Months[],int &Month);
+void GetRainfall(double Rainfall[],int Month,string Months[],double &CalRain);
+void GetTemperature(double Temperature1[],double Temperature2[],string Months[],int Month,double AverageTemp[],double &TotalTemp);
+ void GetTotalTR(double TotalTemp,double CalRain,double TotalTempAv);
+void HighestMonth(int Month,double AverageTemp[],string Months[]);
+ void LowestMonth(int Month,double AverageTemp[],string Months[]);
+
+
+int main(){
+    int Maximum_Months=12;
+    int Month;
+    double TotalTemp;
+   double AverageTemp[Maximum_Months];
+    double Temperature1[Maximum_Months];
+    double Temperature2[Maximum_Months];
+    double Rainfall[Maximum_Months];
+    string Months[Maximum_Months];
+    GetYear(Months,Month);
+    double CalRain;
+    float TotalRainfall,TotalTempAv;
+   
+    GetRainfall(Rainfall,Month,Months,CalRain);
+    GetTemperature(Temperature1,Temperature2,Months,Month,AverageTemp,TotalTemp);
+   GetTotalTR(TotalTemp,TotalTempAv,CalRain);
+   HighestMonth(Month, AverageTemp,Months);
+   LowestMonth(Month,AverageTemp,Months);
+    
+    
+    
+    
+    return 0;
+}
+void GetYear(string Months[],int &Month){
+    cout<<"How many months would you like to calculate the weather?";
+    cin>>Month;
+  
+    for(int i=0;i<Month;i++){
+          cout<<"Name the months "<<i+1<<":";
+        cin>>Months[i];}}
+        
+    
+    void GetRainfall(double Rainfall[],int Month,string Months[],double &CalRain){
+    for(int j=0;j<Month;j++){
+        cout<<"For the current months:"<<Months[j]<<endl;
+        cout<<"What's the amount of rainfall:";
+        cin>>Rainfall[j];
+        cout<<"Rainfall is: "<<Rainfall[j]<<" mm"<<endl;
+        CalRain+=Rainfall[j];
+    }
+             
+cout<<"The Total rainfall is"<<CalRain;    }    
+    
+        
+        void GetTemperature(double Temperature1[],double Temperature2[],string Months[],int Month,double AverageTemp[],double &TotalTemp){
+        for(int f=0;f<Month;f++){
+            cout<<endl<<"The current month: "<<Months[f]<<endl;
+        cout<<"What the highest temperature:(Degrees Fahrenheit)";
+        cin>>Temperature1[f];
+        if(Temperature1[f]>=-100 && Temperature1[f]<=140){
+        cout<<endl<<"What's the lowest temperature:(Degrees Fahrenheit) ";
+        cin>>Temperature2[f];}
+        else{cout<<"Error,can't be no lower than -100 and no more than 140 degrees fahrenheit";}
+        if(Temperature2[f]>=-100 && Temperature2[f]<=140){
+         TotalTemp+=(Temperature1[f]+Temperature2[f]);
+        cout<<"The total temperature is "<<TotalTemp<<endl;
+        AverageTemp[f]=(Temperature1[f]+Temperature2[f])/2;
+        cout<<"The average for the month of "<<Months[f]<<" is "<<AverageTemp[f];}
+            else{cout<<"Error,can't be no lower than -100 and no more than 140 degrees fahrenheit";}
+        }
+        
+        }
+        
+       
+        void GetTotalTR(double TotalTemp,double TotalTempAv,double CalRain){
+            
+        TotalTempAv=TotalTemp/12;
+       cout<<endl<<"The total rainfall of the year is:"<<CalRain<<endl;
+            cout<<"The total avergae temperature for the year is "<<TotalTempAv<<endl;
+            
+        }
+        
+        
+        void HighestMonth(int Month,double AverageTemp[],string Months[]){
+            for(int i=1;i<Month;i++){
+                int Highest=AverageTemp[0];
+                if(Highest<AverageTemp[i]){
+                    Highest=AverageTemp[i];
+                    
+                    cout<<"The highest average temperature of the month is:"<<Highest<<" on "<<Months[i];
+                }}
+        }
+            
+        
+        
+        
+        
+        
+         void LowestMonth(int Month,double AverageTemp[],string Months[]){
+            for(int i=1;i<Month;i++){
+                int Lowest=AverageTemp[0];
+                if(Lowest>AverageTemp[i]){
+                    Lowest=AverageTemp[i];
+                    cout<<"The Lowest average temperature of the month is:"<<Lowest<<" on "<<Months[i];
+                }}
+               
+            }
+                
+        
