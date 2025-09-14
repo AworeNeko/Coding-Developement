@@ -1,0 +1,316 @@
+#include <iostream>
+using namespace ::std;
+
+int const Max=30;
+
+int Racers;
+int RacerID[Max];
+char RacerName[Max][80];
+float RacerTime[Max][3];
+float Minutes[Max];
+float Seconds[Max];
+void GetRacers(int &);
+void RTime(float RacerTime[Max][3],int ,float Seconds[Max]);
+ void SelectionSort(float Seconds[Max], int Racers);
+void Display(float Racertime[Max][3],int Racers);
+
+int main(){
+    
+   GetRacers( Racers);
+   RTime(RacerTime,Racers,Seconds);
+   SelectionSort(Seconds,Racers);
+    Display(RacerTime,Racers);
+        
+        
+    
+    
+    return 0;}
+    
+    
+    void GetRacers(int &Racers){  cout<<"How many racers on the track: ";
+    cin>>Racers;}
+    
+    void RTime(float RacerTime[Max][3],int Racers,float Seconds[Max]){
+         for(int i=0;i<Racers;i++){
+        cin.ignore();
+        cout<<"Enter the racer name:";
+        cin.getline(RacerName[i],80);
+        cout<<"Enter the ID of:"<<RacerName[i]<<":"<<endl;
+            cin>>RacerID[i];}
+        
+        cout<<"Enter the time started and ended"<<endl;
+        for(int i=0;i<Racers;i++){
+            for(int j=0;j<2;j++){
+                cout<<"Enter the start time for "<<RacerName[i]<<": (in International Time)"<<endl;
+                cin>>RacerTime[i][j];
+                if(j=0){
+                    cout<<"Enter start time:"<<endl;
+                    
+                }
+                else if(j=1){cout<<"Enter End time"<<endl;
+cin>>RacerTime[i][j];}
+                    if(RacerTime[i][1]<RacerTime[i][0]){
+                        cout<<"Sorry,time is incorrect.";
+                    }
+                    else{
+                RacerTime[i][2]=RacerTime[i][1]-RacerTime[i][0];
+                
+                cout<<"Minutes took:"<<RacerTime[i][2]<<endl;
+                Seconds[i]=RacerTime[i][2]*60;
+                cout<<"Seconds took is: "<<Seconds[i]<<endl;}
+        }}
+    }
+    
+    
+    void SelectionSort(float Seconds[Max], int Racers)
+        {
+        int startScan, minIndex, minValue;
+       
+             for (startScan = 0; startScan < (Racers - 1); startScan++)
+             {
+             minIndex = startScan;
+             minValue = Seconds[startScan];
+             for (int index = startScan + 1; index <Racers; index++)
+                   {
+                   if (Seconds[index] < minValue)
+                        {
+                        minValue = Seconds[index];
+                        minIndex = index;
+                        }
+                   }
+             Seconds[minIndex] = Seconds[startScan];
+            Seconds[startScan] = minValue;
+             }
+        }
+        
+        
+        
+        
+        
+        void Display(float Racertime[Max][3],int Racers){
+            
+    for(int i=0;i<Racers;i++){
+    for(int j=0;j<1;j++){
+
+        cout<<RacerName[i]<<" ID of Racer: "<<RacerID[i]<<" Seconds took for the rider:"<<Seconds[i];}
+        cout<<endl;}}
+    
+
+        
+Results-Part 1
+How many racers on the track: 4
+Enter the racer name:John
+Enter the ID of:John:
+435
+Enter the racer name:Wick
+Enter the ID of:Wick:
+646
+Enter the racer name:Miguel 
+Enter the ID of:Miguel:
+624
+Enter the racer name:Jack
+Enter the ID of:Jack:
+753
+Enter the time started and ended
+Enter the start time for John: (in International Time)
+1300
+Enter End time
+1400
+Minutes took:100
+Seconds took is: 6000
+Enter the start time for Wick: (in International Time)
+1230
+Enter End time
+1430
+Minutes took:200
+Seconds took is: 12000
+Enter the start time for Miguel: (in International Time)
+1500
+Enter End time
+1800
+Minutes took:300
+Seconds took is: 18000
+Enter the start time for Jack: (in International Time)
+1245
+Enter End time
+1525
+Minutes took:280
+Seconds took is: 16800
+John ID of Racer: 435 Seconds took for the rider:6000
+Wick ID of Racer: 646 Seconds took for the rider:12000
+Miguel ID of Racer: 624 Seconds took for the rider:16800
+Jack ID of Racer: 753 Seconds took for the rider:18000
+
+Codigo del String
+
+#include <iostream>
+using namespace ::std;
+
+int const Max=30;
+
+int Racers;
+int RacerID[Max];
+string RacerName[Max];
+float RacerTime[Max][3];
+float Minutes[Max];
+float Seconds[Max];
+void GetRacers(int &);
+void RTime(float RacerTime[Max][3],int ,float Seconds[Max]);
+ void SelectionSort(float Seconds[Max], int Racers);
+void Display(float Racertime[Max][3],int Racers);
+
+int main(){
+    
+   GetRacers( Racers);
+   RTime(RacerTime,Racers,Seconds);
+   SelectionSort(Seconds,Racers);
+    Display(RacerTime,Racers);
+        
+        
+    
+    
+    return 0;}
+    
+    
+    void GetRacers(int &Racers){  cout<<"How many racers on the track: ";
+    cin>>Racers;}
+    
+    void RTime(float RacerTime[Max][3],int Racers,float Seconds[Max]){
+         for(int i=0;i<Racers;i++){
+        cin.ignore();
+        cout<<"Enter the racer name:";
+        cin>>RacerName[i];
+        cout<<"Enter the ID of:"<<RacerName[i]<<":"<<endl;
+            cin>>RacerID[i];}
+        
+        cout<<"Enter the time started and ended"<<endl;
+        for(int i=0;i<Racers;i++){
+            for(int j=0;j<2;j++){
+                cout<<"Enter the start time for "<<RacerName[i]<<": (in International Time)"<<endl;
+                cin>>RacerTime[i][j];
+                if(j=0){
+                    cout<<"Enter start time:"<<endl;
+                    
+                }
+                else if(j=1){cout<<"Enter End time"<<endl;
+cin>>RacerTime[i][j];}
+                    if(RacerTime[i][1]<RacerTime[i][0]){
+                        cout<<"Sorry,time is incorrect.";
+                    }
+                    else{
+                RacerTime[i][2]=RacerTime[i][1]-RacerTime[i][0];
+                
+                cout<<"Minutes took:"<<RacerTime[i][2]<<endl;
+                Seconds[i]=RacerTime[i][2]*60;
+                cout<<"Seconds took is: "<<Seconds[i]<<endl;}
+        }}
+    }
+    
+    
+    void SelectionSort(float Seconds[Max], int Racers)
+        {
+        int startScan, minIndex, minValue;
+       
+             for (startScan = 0; startScan < (Racers - 1); startScan++)
+             {
+             minIndex = startScan;
+             minValue = Seconds[startScan];
+             for (int index = startScan + 1; index <Racers; index++)
+                   {
+                   if (Seconds[index] < minValue)
+                        {
+                        minValue = Seconds[index];
+                        minIndex = index;
+                        }
+                   }
+             Seconds[minIndex] = Seconds[startScan];
+            Seconds[startScan] = minValue;
+             }
+        }
+        
+        
+        
+        
+        
+        void Display(float Racertime[Max][3],int Racers){
+            
+    for(int i=0;i<Racers;i++){
+    for(int j=0;j<1;j++){
+
+        cout<<RacerName[i]<<" ID of Racer: "<<RacerID[i]<<" Seconds took for the rider:"<<Seconds[i];}
+        cout<<endl;}}
+    
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Results
+
+
+How many racers on the track: 4
+Enter the racer name:Rick
+Enter the ID of:Rick:
+534 
+Enter the racer name:Dome
+Enter the ID of:Dome:
+564
+Enter the racer name:Halley
+Enter the ID of:Halley:
+687
+Enter the racer name:Michael
+Enter the ID of:Michael:
+603
+Enter the time started and ended
+Enter the start time for Rick: (in International Time)
+1200
+Enter End time
+1300
+Minutes took:100
+Seconds took is: 6000
+Enter the start time for Dome: (in International Time)
+1200
+Enter End time
+1330
+Minutes took:130
+Seconds took is: 7800
+Enter the start time for Halley: (in International Time)
+1201
+Enter End time
+13045
+Minutes took:11844
+Seconds took is: 710640
+Enter the start time for Michael: (in International Time)
+1205
+Enter End time
+1500
+Minutes took:295
+Seconds took is: 17700
+Rick ID of Racer: 534 Seconds took for the rider:6000
+Dome ID of Racer: 564 Seconds took for the rider:7800
+Halley ID of Racer: 687 Seconds took for the rider:17700
+Michael ID of Racer: 603 Seconds took for the rider:710640
